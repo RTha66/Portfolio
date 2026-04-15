@@ -1,22 +1,37 @@
+import { useState } from 'react';
 import './App.css'
+import AboutSection from './components/AboutSection';
+
+function NeonButton({ children, onClick }) {
+  return (
+    <button className="neon-bubble-button" onClick={onClick}>
+      <span className="button-content">{children}</span>
+    </button>
+  );
+}
 
 function App() {
-  return (
-    <div className="portfolio">
-      <header>
-        <h1>Rhatanaporn Maturasakul</h1>
-        <p>Information Technology Student (Multimedia), KMITL</p>
-      </header>
-      
-      <section id="about">
-        <h2>About Me</h2>
-        <p>นักศึกษาชั้นปีที่ 3 คณะเทคโนโลยีสารสนเทศ สจล. สนใจด้าน Web Development และ UX/UI</p>
-      </section>
 
-      <section id="projects">
-        <h2>My Projects</h2>
-        {/* คุณสามารถเพิ่มรายการโปรเจกต์ที่นี่ */}
-      </section>
+  return (
+    <div className='portfolio-container'>
+      <header className='top-header'>
+        <a href='https://github.com/RTha66' className='logo'>RTha</a>
+        <NeonButton children="Contact" onClick={() => console.log('Contact Clicked!')} />
+      </header>
+
+      <main className='main-layout'>
+
+      <AboutSection />
+
+      <aside className='side-nav'>
+        <nav className='vertical-menu'>
+          <div className='nav-item active'>About</div>
+          <div className='nav-item'>Skill</div>
+          <div className='nav-item'>Project</div>
+        </nav>
+        <div className="vertical-line"></div>
+      </aside>
+      </main>
     </div>
   )
 }
