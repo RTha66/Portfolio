@@ -16,7 +16,7 @@ function NeonButton({ children, onClick }) {
 const NAV_ITEMS = [
   { id: 'about',   label: 'About'   },
   { id: 'skill',   label: 'Skill'   },
-  { id: 'project', label: 'Project' },
+  { id: 'project', label: 'Project' }
 ];
 
 function App() {
@@ -35,8 +35,16 @@ function App() {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { root: containerRef.current, threshold: 0.5 }
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id === 'contact' ? null : id);
+          }
+        },
+        {
+          root: containerRef.current,
+          rootMargin: '-45% 0px -45% 0px',
+          threshold: 0
+        }
       );
       obs.observe(el);
       observers.push(obs);
@@ -72,9 +80,7 @@ function App() {
     <div className='portfolio-container' ref={containerRef}>
 
       <header className='top-header'>
-        <a href='https://github.com/RTha66' className='logo'>
-          <img src='/favicon.svg' alt='RTha' className='logo-icon' />
-        </a>
+        <a href='https://github.com/RTha66' className='logo'>RTha</a>
         <NeonButton onClick={() => scrollToSection('contact')}>Contact</NeonButton>
       </header>
 
