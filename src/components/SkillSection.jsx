@@ -19,7 +19,7 @@ export default function SkillSection() {
 
     const webDevDetailed = [
         { title: "Front-End", skills: [{ name: "HTML5", icon: "/icon/html.svg" }, { name: "CSS3", icon: "/icon/css.svg" }, { name: "JavaScript", icon: "/icon/js.svg" }, { name: "React", icon: "/icon/React.svg" }, { name: "Tailwind", icon: "/icon/tailwind.svg" }] },
-        { title: "Back-End", skills: [{ name: "Node.js", icon: "/icon/node.svg" }, { name: "EJS", icon: "/icon/ejs.svg" }] },
+        { title: "Back-End", skills: [{ name: "Node.js", icon: "/icon/node.svg" }, { name: "EJS", icon: "/icon/ejs.svg" }, { name: "Express.js", icon: "/icon/express.svg" }] },
         { title: "Database", skills: [{ name: "MongoDB", icon: "/icon/mongo.svg" }, { name: "SQLite", icon: "/icon/sql.svg" }] }
     ];
 
