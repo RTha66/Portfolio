@@ -1276,3 +1276,18 @@ section {
     word-break: break-all;
   }
 }
+
+@media (max-width: 412px) {
+  .pi-title {
+    font-size: 1.4rem;
+  }
+  .pi-title-dorm {
+    font-size: 2.1rem;
+  }
+  .pi-mockup {
+    max-height: 200px;
+  }
+  .project-image {
+    max-height: 120px;
+  }
+}
