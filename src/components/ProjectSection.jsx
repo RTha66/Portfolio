@@ -1,4 +1,8 @@
 import { useEffect, useRef } from "react";
+import Project1 from "./Project1";
+import Project2 from "./Project2";
+import Project3 from "./Project3";
+import Project4 from './Project4';
 
 export default function ProjectSection() {
   const projectRef = useRef(null);
@@ -6,7 +10,6 @@ export default function ProjectSection() {
   useEffect(() => {
     const container = document.querySelector(".portfolio-container");
     const project = projectRef.current;
-
     let isScrolling = false;
 
     const handleWheel = (e) => {
@@ -15,7 +18,8 @@ export default function ProjectSection() {
       if (!isInView) return;
 
       const isAtStart = project.scrollLeft <= 0;
-      const isAtEnd = project.scrollLeft + project.clientWidth >= project.scrollWidth - 1;
+      const isAtEnd =
+        project.scrollLeft + project.clientWidth >= project.scrollWidth - 1;
 
       if ((e.deltaY > 0 && !isAtEnd) || (e.deltaY < 0 && !isAtStart)) {
         e.preventDefault();
@@ -26,27 +30,21 @@ export default function ProjectSection() {
         const nextIndex = e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
 
         isScrolling = true;
-        project.scrollTo({
-          left: nextIndex * width,
-          behavior: "smooth",
-        });
-
+        project.scrollTo({ left: nextIndex * width, behavior: "smooth" });
         setTimeout(() => { isScrolling = false; }, 700);
       }
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-    };
+    return () => container.removeEventListener("wheel", handleWheel);
   }, []);
 
   return (
     <section className="project-section" ref={projectRef}>
-      <div className="project-item">Project 1</div>
-      <div className="project-item">Project 2</div>
-      <div className="project-item">Project 3</div>
+      <Project1 />
+      <Project2 />
+      <Project3 />
+      <Project4 />
     </section>
   );
 }

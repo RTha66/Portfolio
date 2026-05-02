@@ -19,6 +19,9 @@ const NAV_ITEMS = [
   { id: 'project', label: 'Project' }
 ];
 
+// รวม contact ด้วยเพื่อ observe การเข้า/ออก section
+const ALL_SECTION_IDS = ['about', 'skill', 'project', 'contact'];
+
 function App() {
   const containerRef = useRef(null);
   const [activeSection, setActiveSection] = useState('about');
@@ -31,12 +34,13 @@ function App() {
 
   useEffect(() => {
     const observers = [];
-    NAV_ITEMS.forEach(({ id }) => {
+    ALL_SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
+            // contact section → ไม่มีข้อ nav ที่ active
             setActiveSection(id === 'contact' ? null : id);
           }
         },

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function SkillSection() {
     const [isWebDevView, setIsWebDevView] = useState(false);
+    
+    const [activeTooltip, setActiveTooltip] = useState(null);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -49,9 +51,18 @@ export default function SkillSection() {
                             <h4>{cat.title}</h4>
                             <div className="icon-grid">
                                 {cat.skills.map((skill, i) => (
-                                    <div key={i} className="skill-icon-box">
+                                    <div 
+                                        key={i} 
+                                        className="skill-icon-box"
+                                        // เมื่อคลิก: ถ้าเป็นตัวเดิมให้ปิด ถ้าเป็นตัวใหม่ให้เปิด
+                                        onClick={() => setActiveTooltip(activeTooltip === skill.name ? null : skill.name)}
+                                        // เมื่อเมาส์ออก (Desktop): ให้ปิด Tooltip
+                                        onMouseLeave={() => setActiveTooltip(null)}
+                                    >
                                         <img src={skill.icon} alt={skill.name} className="skill-img" />
-                                        <span className="skill-name-tooltip">{skill.name}</span>
+                                        <span className={`skill-name-tooltip ${activeTooltip === skill.name ? 'show' : ''}`}>
+                                            {skill.name}
+                                        </span>
                                     </div>
                                 )).reverse()}
                             </div>
