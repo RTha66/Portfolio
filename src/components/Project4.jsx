@@ -23,7 +23,7 @@ export default function Project4() {
                 </h2>
 
                 <p className="pi-desc">
-                    The Dormitory Management System is a Java-based OOP application built to streamline administration, featuring an intuitive GUI for room data management and database integration for organized storage.
+                    A Java-based OOP application for dormitory management. It features a GUI for easy room data handling and uses an SQL database for organized storage.
                 </p>
 
                 <div className="pi-tech-container">
@@ -37,7 +37,7 @@ export default function Project4() {
                         <strong>Database:</strong> SQL
                     </div>
                     <div className="pi-tech-group">
-                        <strong>Development Tools:</strong> NetBeans IDE, Apache Ant, Git[cite: 2]
+                        <strong>Development Tools:</strong> NetBeans IDE, Apache Ant, Git
                     </div>
                 </div>
 

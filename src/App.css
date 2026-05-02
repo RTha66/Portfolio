@@ -1281,13 +1281,35 @@ section {
   .pi-title {
     font-size: 1.4rem;
   }
-  .pi-title-dorm {
-    font-size: 2.1rem;
+
+  .project-item--split {
+    gap: 20px;
+    padding-block: 30px;
   }
+
+  .pi-pic {
+    max-height: 160px !important;
+  }
+
+  .pi-tech-container {
+    gap: 2px !important;
+  }
+
+  .pi-title-dorm {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+
   .pi-mockup {
     max-height: 200px;
   }
+
   .project-image {
     max-height: 120px;
+  }
+
+  .pi-tech-container {
+    gap: 2px !important;
   }
 }
